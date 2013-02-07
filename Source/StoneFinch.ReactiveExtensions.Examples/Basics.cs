@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace StoneFinch.ReactiveExtensions.Examples
 {
-    class Basics
+    public class Basics
     {
+
+        public void Example01()
+        {
+
+        }
+
     }
 }
