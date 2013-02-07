@@ -8,11 +8,9 @@ namespace StoneFinch.ReactiveExtensions.Examples
 {
     public class Basics
     {
-
         public void Example01()
         {
-
+            
         }
-
     }
 }
