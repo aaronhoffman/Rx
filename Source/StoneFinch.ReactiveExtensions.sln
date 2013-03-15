@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoneFinch.ReactiveExtensions.Web", "StoneFinch.ReactiveExtensions.Web\StoneFinch.ReactiveExtensions.Web.csproj", "{7EAE9537-8DCF-4B53-867D-FE16B6ED9D17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoneFinch.ReactiveExtensions.Wpf", "StoneFinch.ReactiveExtensions.Wpf\StoneFinch.ReactiveExtensions.Wpf.csproj", "{E904B325-D49F-4844-8578-B4958D9C680B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7EAE9537-8DCF-4B53-867D-FE16B6ED9D17} = {7EAE9537-8DCF-4B53-867D-FE16B6ED9D17}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoneFinch.ReactiveExtensions.Wpf4", "StoneFinch.ReactiveExtensions.Wpf4\StoneFinch.ReactiveExtensions.Wpf4.csproj", "{22829F55-9625-4F24-B21E-C10B86E0D656}"
 	ProjectSection(ProjectDependencies) = postProject
 		{7EAE9537-8DCF-4B53-867D-FE16B6ED9D17} = {7EAE9537-8DCF-4B53-867D-FE16B6ED9D17}
@@ -25,10 +20,6 @@ Global
 		{7EAE9537-8DCF-4B53-867D-FE16B6ED9D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EAE9537-8DCF-4B53-867D-FE16B6ED9D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EAE9537-8DCF-4B53-867D-FE16B6ED9D17}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E904B325-D49F-4844-8578-B4958D9C680B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E904B325-D49F-4844-8578-B4958D9C680B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E904B325-D49F-4844-8578-B4958D9C680B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E904B325-D49F-4844-8578-B4958D9C680B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22829F55-9625-4F24-B21E-C10B86E0D656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22829F55-9625-4F24-B21E-C10B86E0D656}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22829F55-9625-4F24-B21E-C10B86E0D656}.Release|Any CPU.ActiveCfg = Release|Any CPU
