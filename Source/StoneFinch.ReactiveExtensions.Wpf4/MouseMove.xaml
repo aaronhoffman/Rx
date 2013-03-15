@@ -1,15 +1,83 @@
-﻿<Window x:Class="StoneFinch.ReactiveExtensions.Wpf4.MouseMove"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Mouse Move" Height="400" Width="600"
-        
-        MouseLeftButtonDown="mouse_MouseLeftButtonDown" MouseLeftButtonUp="mouse_MouseLeftButtonUp" MouseMove="Window_MouseMove_1"
-        
-        >
-    <!--MouseLeftButtonDown="mouse_MouseLeftButtonDown" MouseLeftButtonUp="mouse_MouseLeftButtonUp" MouseMove="Window_MouseMove_1"-->
+﻿<Window
+    x:Class="StoneFinch.ReactiveExtensions.Wpf4.MouseMove"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Mouse Move"
+    Width="600"
+    Height="400"
     
+    MouseLeftButtonDown="mouse_MouseLeftButtonDown"
+    MouseLeftButtonUp="mouse_MouseLeftButtonUp"
+    MouseMove="Window_MouseMove_1"
+    
+    >
+    
+    <!--
+        Three Observable Sequences of data....
+    
+        MouseLeftButtonDown="mouse_MouseLeftButtonDown"
+        MouseLeftButtonUp="mouse_MouseLeftButtonUp"
+        MouseMove="Window_MouseMove_1"
+    -->
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="42" />
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        <TextBlock x:Name="MouseCoordsTextBlock" Text="X, Y" FontSize="24"></TextBlock>
+        <Canvas>
+            <TextBlock
+                x:Name="MouseDownTextBlock"
+                Canvas.Left="298"
+                Canvas.Top="10"
+                Text="X, Y" />
+            <Rectangle
+                x:Name="MouseDownRect"
+                Canvas.Left="500"
+                Canvas.Top="10"
+                Width="60"
+                Height="56"
+                Fill="LightGreen"
+                Visibility="Hidden" />
+            <TextBlock
+                x:Name="MouseUpTextBlock"
+                Canvas.Left="298"
+                Canvas.Top="71"
+                Text="X, Y" />
+            <TextBlock
+                x:Name="MouseMoveTextBlock"
+                Canvas.Left="298"
+                Canvas.Top="132"
+                Text="X, Y" />
+            <TextBlock
+                x:Name="MouseDownMoveTextBlock"
+                Canvas.Left="298"
+                Canvas.Top="193"
+                Text="X, Y" />
+            <TextBlock
+                x:Name="TextBlock1"
+                Canvas.Left="10"
+                Canvas.Top="10"
+                Text="Mouse Down:" />
+            <TextBlock
+                x:Name="TextBlock2"
+                Canvas.Left="10"
+                Canvas.Top="71"
+                Text="Mouse Up:" />
+            <TextBlock
+                x:Name="TextBlock3"
+                Canvas.Left="10"
+                Canvas.Top="132"
+                Text="Mouse Move:" />
+            <TextBlock
+                x:Name="TextBlock4"
+                Canvas.Left="10"
+                Canvas.Top="193"
+                Text="Down Move" />
+
+        </Canvas>
     </Grid>
-    
+
 </Window>

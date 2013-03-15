@@ -95,18 +95,29 @@ namespace StoneFinch.ReactiveExtensions.Wpf4
             // get reference to service from AsyncResult
             var service = asyncResult.AsyncState as MyWcfServiceClient;
 
-            // get response from service call
-            var currentDateTimeUtc = service.EndGetCurrentDateTimeUtc(asyncResult);
-
-            this.Dispatcher.BeginInvoke((Action)(() =>
+            try
             {
-                // service call returned, update textblock
-                this.ServerTimeTextBlock3.Text = currentDateTimeUtc.ToString(DateTimeFormat);
+                // get response from service call, may throw exception
+                var currentDateTimeUtc = service.EndGetCurrentDateTimeUtc(asyncResult);
 
-                // update textblock that shows we have received the response
-                this.ResponseTimeTextBlock3.Text = DateTime.UtcNow.ToString(DateTimeFormat);
-            }),
-            null);
+                this.Dispatcher.BeginInvoke((Action)(() =>
+                {
+                    // service call returned, update textblock
+                    this.ServerTimeTextBlock3.Text = currentDateTimeUtc.ToString(DateTimeFormat);
+
+                    // update textblock that shows we have received the response
+                    this.ResponseTimeTextBlock3.Text = DateTime.UtcNow.ToString(DateTimeFormat);
+                }),
+                null);
+            }
+            catch (Exception ex)
+            {
+                this.Dispatcher.BeginInvoke((Action)(() =>
+                {
+                    this.ServerTimeTextBlock3.Text = "Error Occurred.";
+                }),
+                null);
+            }
         }
 
 
@@ -121,16 +132,22 @@ namespace StoneFinch.ReactiveExtensions.Wpf4
             var obs = Observable.FromAsyncPattern<DateTime>(service.BeginGetCurrentDateTimeUtc, service.EndGetCurrentDateTimeUtc);
 
             // does not block  (note: needs ObserveOnDispatcher)
-            obs().Subscribe(
-            
+            obs().ObserveOnDispatcher().Subscribe(
+
             // OnNext
             x =>
             {
                 // service call returned, update textblock
                 this.ServerTimeTextBlock4.Text = x.ToString(DateTimeFormat);
             },
-            
-            // Completed
+
+            // OnError
+            ex =>
+            {
+                this.ServerTimeTextBlock4.Text = "Error Occurred";
+            },
+
+            // OnCompleted
             () =>
             {
                 // the service call returned, the Observable Completed, update the response textblock
