@@ -1,7 +1,7 @@
 ﻿<Window x:Class="StoneFinch.ReactiveExtensions.Wpf4.ServiceCall"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Reactive Extensions" Height="600" Width="800">
+        Title="Reactive Extensions" Height="600" Width="1000">
     
     <Window.Resources>
         <Style TargetType="TextBlock">
@@ -46,7 +46,7 @@
                 <Button x:Name="GetServerTimeButton3" Content="Get Server Time Begin/End" Canvas.Top="80" Width="260" Click="GetServerTimeButton3_Click"  ></Button>
             </Canvas>
 
-            <Canvas Canvas.Top="420">
+            <Canvas Canvas.Top="0" Canvas.Left="500" >
                 <TextBlock Text="Request Time:"></TextBlock>
                 <TextBlock x:Name="RequestTimeTextBlock4" Text="..." Canvas.Left="200" ></TextBlock>
                 <TextBlock Text="Server Time:" Canvas.Top="24"></TextBlock>
@@ -54,6 +54,27 @@
                 <TextBlock Text="Response Time:" Canvas.Top="48"></TextBlock>
                 <TextBlock x:Name="ResponseTimeTextBlock4" Text="..." Canvas.Left="200" Canvas.Top="48" ></TextBlock>
                 <Button x:Name="GetServerTimeButton4" Content="Get Server Time Rx" Canvas.Top="80" Width="260" Click="GetServerTimeButton4_Click"  ></Button>
+            </Canvas>
+
+            <Canvas Canvas.Top="140" Canvas.Left="500" >
+                <TextBlock Text="Request Time:"></TextBlock>
+                <TextBlock x:Name="RequestTimeTextBlock5" Text="..." Canvas.Left="200" ></TextBlock>
+                <TextBlock Text="Server Time:" Canvas.Top="24"></TextBlock>
+                <TextBlock x:Name="ServerTimeTextBlock5" Text="..." Canvas.Left="200" Canvas.Top="24" ></TextBlock>
+                <TextBlock Text="Response Time:" Canvas.Top="48"></TextBlock>
+                <TextBlock x:Name="ResponseTimeTextBlock5" Text="..." Canvas.Left="200" Canvas.Top="48" ></TextBlock>
+                <Button x:Name="GetServerTimeButton5" Content="Join Async Rx" Canvas.Top="80" Width="260" Click="GetServerTimeButton5_Click"  ></Button>
+            </Canvas>
+
+
+            <Canvas Canvas.Top="280" Canvas.Left="500" >
+                <TextBlock Text="Request Time:"></TextBlock>
+                <TextBlock x:Name="RequestTimeTextBlock6" Text="..." Canvas.Left="200" ></TextBlock>
+                <TextBlock Text="Server Time:" Canvas.Top="24"></TextBlock>
+                <TextBlock x:Name="ServerTimeTextBlock6" Text="..." Canvas.Left="200" Canvas.Top="24" ></TextBlock>
+                <TextBlock Text="Response Time:" Canvas.Top="48"></TextBlock>
+                <TextBlock x:Name="ResponseTimeTextBlock6" Text="..." Canvas.Left="200" Canvas.Top="48" ></TextBlock>
+                <Button x:Name="GetServerTimeButton6" Content="Chain Async Rx" Canvas.Top="80" Width="260" Click="GetServerTimeButton6_Click"  ></Button>
             </Canvas>
         </Canvas>
     </Grid>

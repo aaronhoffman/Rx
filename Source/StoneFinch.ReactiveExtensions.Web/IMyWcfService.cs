@@ -13,5 +13,11 @@ namespace StoneFinch.ReactiveExtensions.Web
     {
         [OperationContract]
         DateTime GetCurrentDateTimeUtc();
+
+        [OperationContract]
+        string DateTimeToString(DateTime dateTime);
+
+        [OperationContract]
+        double GetRandomNumber();
     }
 }
