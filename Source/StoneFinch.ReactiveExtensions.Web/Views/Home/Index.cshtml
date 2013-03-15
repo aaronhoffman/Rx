@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<table>
+    <tr>
+        <td style="vertical-align:top;" >
+            <h1>Name Search:</h1>
+            <input id="NameTextBox" type="text" value="" />
+        </td>
+        <td style="vertical-align:top;">
+            <h1>Previous Search:</h1>
+            <ul id="PreviousSearchList" >
+
+            </ul>
+
+        </td>
+        <td>
+
+
+        </td>
+    </tr>
+
+
+</table>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/rx.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/rx.jquery.js")"></script>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        var nameTextBox = $("#NameTextBox");
+        
+        var obs =
+            nameTextBox
+            .keyupAsObservable()
+            .select(function(x) { return $("#NameTextBox").val();});
+
+        obs.subscribe(function (x) {
+
+            $("#PreviousSearchList").append("<li>" + x + "</li>");
+        });
+
+
+    });
+
+</script>

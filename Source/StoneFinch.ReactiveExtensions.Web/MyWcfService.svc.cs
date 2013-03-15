@@ -56,7 +56,13 @@ namespace StoneFinch.ReactiveExtensions.Web
 
         public IEnumerable<string> SelectNamesStartWith(string nameStartsWith)
         {
+            // simulate work....
+            Thread.Sleep(4000);
+
             var s = nameStartsWith.ToUpper();
+
+            if (s == "ANN")
+                Thread.Sleep(10000);
 
             return
                 this.Names

@@ -1,0 +1,46 @@
+﻿<Window
+    x:Class="StoneFinch.ReactiveExtensions.Wpf4.NameSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Name Search" Height="600" Width="800">
+    
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"></Setter>
+        </Style>
+        
+        <Style TargetType="TextBox" >
+            <Setter Property="FontSize" Value="24"></Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Canvas>
+            
+            <TextBlock Text="Name Search:" ></TextBlock>
+            <TextBox x:Name="NameTextBox" Width="200" Canvas.Top="37"  />
+            <TextBlock x:Name="AnnouncementTextBlock" Width="200" TextWrapping="Wrap" Canvas.Top="98" ></TextBlock>
+
+
+            <TextBlock Text="Current Results:" Canvas.Left="220" />
+            <ListBox ItemsSource="{Binding Path=PreviousSearches}" Width="200" Canvas.Left="220" Canvas.Top="37" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontSize="24" Text="{Binding Path=.}"></TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+            <ListBox ItemsSource="{Binding Path=CurrentResults}" Width="200" Canvas.Left="460" Canvas.Top="37" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontSize="24" Text="{Binding Path=.}"></TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBlock Text="Current Results:" Canvas.Left="460" />
+
+        </Canvas>
+    </Grid>
+</Window>

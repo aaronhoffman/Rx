@@ -73,11 +73,20 @@
     <Compile Include="MouseMove.xaml.cs">
       <DependentUpon>MouseMove.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NameSearch.xaml.cs">
+      <DependentUpon>NameSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NameSearchViewModel.cs" />
+    <Compile Include="ViewModelExtensions.cs" />
     <Compile Include="Service References\MyWcfServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Page Include="NameSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ServiceCall.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -144,6 +153,9 @@
     <None Include="Service References\MyWcfServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\MyWcfServiceReference\MyWcfService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\MyWcfServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
