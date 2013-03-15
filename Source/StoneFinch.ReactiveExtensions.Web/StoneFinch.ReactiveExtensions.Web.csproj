@@ -122,6 +122,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="MyWcfService.svc" />
+    <None Include="Scripts\rx-vsdoc.js" />
+    <Content Include="Scripts\rx.js" />
+    <Content Include="Scripts\rx.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
