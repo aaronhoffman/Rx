@@ -38,6 +38,14 @@ namespace StoneFinch.ReactiveExtensions.Wpf4.MyWcfServiceReference {
         System.IAsyncResult BeginGetRandomNumber(System.AsyncCallback callback, object asyncState);
         
         double EndGetRandomNumber(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyWcfService/SelectNamesStartWith", ReplyAction="http://tempuri.org/IMyWcfService/SelectNamesStartWithResponse")]
+        string[] SelectNamesStartWith(string nameStartsWith);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMyWcfService/SelectNamesStartWith", ReplyAction="http://tempuri.org/IMyWcfService/SelectNamesStartWithResponse")]
+        System.IAsyncResult BeginSelectNamesStartWith(string nameStartsWith, System.AsyncCallback callback, object asyncState);
+        
+        string[] EndSelectNamesStartWith(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -103,6 +111,25 @@ namespace StoneFinch.ReactiveExtensions.Wpf4.MyWcfServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SelectNamesStartWithCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SelectNamesStartWithCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class MyWcfServiceClient : System.ServiceModel.ClientBase<StoneFinch.ReactiveExtensions.Wpf4.MyWcfServiceReference.IMyWcfService>, StoneFinch.ReactiveExtensions.Wpf4.MyWcfServiceReference.IMyWcfService {
         
         private BeginOperationDelegate onBeginGetCurrentDateTimeUtcDelegate;
@@ -122,6 +149,12 @@ namespace StoneFinch.ReactiveExtensions.Wpf4.MyWcfServiceReference {
         private EndOperationDelegate onEndGetRandomNumberDelegate;
         
         private System.Threading.SendOrPostCallback onGetRandomNumberCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSelectNamesStartWithDelegate;
+        
+        private EndOperationDelegate onEndSelectNamesStartWithDelegate;
+        
+        private System.Threading.SendOrPostCallback onSelectNamesStartWithCompletedDelegate;
         
         public MyWcfServiceClient() {
         }
@@ -147,6 +180,8 @@ namespace StoneFinch.ReactiveExtensions.Wpf4.MyWcfServiceReference {
         public event System.EventHandler<DateTimeToStringCompletedEventArgs> DateTimeToStringCompleted;
         
         public event System.EventHandler<GetRandomNumberCompletedEventArgs> GetRandomNumberCompleted;
+        
+        public event System.EventHandler<SelectNamesStartWithCompletedEventArgs> SelectNamesStartWithCompleted;
         
         public System.DateTime GetCurrentDateTimeUtc() {
             return base.Channel.GetCurrentDateTimeUtc();
@@ -292,6 +327,56 @@ namespace StoneFinch.ReactiveExtensions.Wpf4.MyWcfServiceReference {
                 this.onGetRandomNumberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetRandomNumberCompleted);
             }
             base.InvokeAsync(this.onBeginGetRandomNumberDelegate, null, this.onEndGetRandomNumberDelegate, this.onGetRandomNumberCompletedDelegate, userState);
+        }
+        
+        public string[] SelectNamesStartWith(string nameStartsWith) {
+            return base.Channel.SelectNamesStartWith(nameStartsWith);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginSelectNamesStartWith(string nameStartsWith, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSelectNamesStartWith(nameStartsWith, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public string[] EndSelectNamesStartWith(System.IAsyncResult result) {
+            return base.Channel.EndSelectNamesStartWith(result);
+        }
+        
+        private System.IAsyncResult OnBeginSelectNamesStartWith(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string nameStartsWith = ((string)(inValues[0]));
+            return this.BeginSelectNamesStartWith(nameStartsWith, callback, asyncState);
+        }
+        
+        private object[] OnEndSelectNamesStartWith(System.IAsyncResult result) {
+            string[] retVal = this.EndSelectNamesStartWith(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSelectNamesStartWithCompleted(object state) {
+            if ((this.SelectNamesStartWithCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SelectNamesStartWithCompleted(this, new SelectNamesStartWithCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SelectNamesStartWithAsync(string nameStartsWith) {
+            this.SelectNamesStartWithAsync(nameStartsWith, null);
+        }
+        
+        public void SelectNamesStartWithAsync(string nameStartsWith, object userState) {
+            if ((this.onBeginSelectNamesStartWithDelegate == null)) {
+                this.onBeginSelectNamesStartWithDelegate = new BeginOperationDelegate(this.OnBeginSelectNamesStartWith);
+            }
+            if ((this.onEndSelectNamesStartWithDelegate == null)) {
+                this.onEndSelectNamesStartWithDelegate = new EndOperationDelegate(this.OnEndSelectNamesStartWith);
+            }
+            if ((this.onSelectNamesStartWithCompletedDelegate == null)) {
+                this.onSelectNamesStartWithCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSelectNamesStartWithCompleted);
+            }
+            base.InvokeAsync(this.onBeginSelectNamesStartWithDelegate, new object[] {
+                        nameStartsWith}, this.onEndSelectNamesStartWithDelegate, this.onSelectNamesStartWithCompletedDelegate, userState);
         }
     }
 }

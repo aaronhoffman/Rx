@@ -4,6 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:2516/MyWcfService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:2516/MyWcfService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2516/MyWcfService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMyWcfService_GetCurrentDateTimeUtc_InputMessage">
@@ -24,6 +25,12 @@
   <wsdl:message name="IMyWcfService_GetRandomNumber_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRandomNumberResponse" />
   </wsdl:message>
+  <wsdl:message name="IMyWcfService_SelectNamesStartWith_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectNamesStartWith" />
+  </wsdl:message>
+  <wsdl:message name="IMyWcfService_SelectNamesStartWith_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectNamesStartWithResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMyWcfService">
     <wsdl:operation name="GetCurrentDateTimeUtc">
       <wsdl:input wsaw:Action="http://tempuri.org/IMyWcfService/GetCurrentDateTimeUtc" message="tns:IMyWcfService_GetCurrentDateTimeUtc_InputMessage" />
@@ -36,6 +43,10 @@
     <wsdl:operation name="GetRandomNumber">
       <wsdl:input wsaw:Action="http://tempuri.org/IMyWcfService/GetRandomNumber" message="tns:IMyWcfService_GetRandomNumber_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMyWcfService/GetRandomNumberResponse" message="tns:IMyWcfService_GetRandomNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectNamesStartWith">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyWcfService/SelectNamesStartWith" message="tns:IMyWcfService_SelectNamesStartWith_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyWcfService/SelectNamesStartWithResponse" message="tns:IMyWcfService_SelectNamesStartWith_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMyWcfService" type="tns:IMyWcfService">
@@ -60,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetRandomNumber">
       <soap:operation soapAction="http://tempuri.org/IMyWcfService/GetRandomNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectNamesStartWith">
+      <soap:operation soapAction="http://tempuri.org/IMyWcfService/SelectNamesStartWith" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

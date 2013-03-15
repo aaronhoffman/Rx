@@ -24,6 +24,7 @@
     <MetadataFile FileName="MyWcfService.wsdl" MetadataType="Wsdl" ID="f909bbe6-1bb0-4394-b193-ed1172e54f57" SourceId="1" SourceUrl="http://localhost:2516/MyWcfService.svc?wsdl" />
     <MetadataFile FileName="MyWcfService.disco" MetadataType="Disco" ID="fe8f4cc7-a741-4a49-91ca-3e5cf13312a0" SourceId="1" SourceUrl="http://localhost:2516/MyWcfService.svc?disco" />
     <MetadataFile FileName="MyWcfService.xsd" MetadataType="Schema" ID="ce719359-f995-426b-806b-597b24b8dc29" SourceId="1" SourceUrl="http://localhost:2516/MyWcfService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MyWcfService2.xsd" MetadataType="Schema" ID="0399c407-a1d3-444e-b6d5-4a578544bebd" SourceId="1" SourceUrl="http://localhost:2516/MyWcfService.svc?xsd=xsd2" />
     <MetadataFile FileName="MyWcfService1.xsd" MetadataType="Schema" ID="725a8200-4e85-46ce-9071-7c4f20d27a5a" SourceId="1" SourceUrl="http://localhost:2516/MyWcfService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>

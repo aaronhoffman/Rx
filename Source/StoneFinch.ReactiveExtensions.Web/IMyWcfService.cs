@@ -19,5 +19,8 @@ namespace StoneFinch.ReactiveExtensions.Web
 
         [OperationContract]
         double GetRandomNumber();
+
+        [OperationContract]
+        IEnumerable<string> SelectNamesStartWith(string nameStartsWith);
     }
 }
