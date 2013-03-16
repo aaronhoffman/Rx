@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -23,6 +24,8 @@ namespace StoneFinch.ReactiveExtensions.Web.Controllers
 
             if (s == "ANN")
                 Thread.Sleep(10000);
+
+            Debug.WriteLine(String.Format("HomeController SelectNamesStartWith: {0}", s));
 
             return Json(
                 this.Names
