@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoneFinch.ReactiveExtensio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoneFinch.ReactiveExtensions.Examples", "StoneFinch.ReactiveExtensions.Examples\StoneFinch.ReactiveExtensions.Examples.csproj", "{F87C65BA-055F-48E0-8E79-379911601DF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoneFinch.ReactiveExtensions.Tests", "StoneFinch.ReactiveExtensions.Tests\StoneFinch.ReactiveExtensions.Tests.csproj", "{8F83B44B-302E-4C18-B977-F4A3907790E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoneFinch.ReactiveExtensions.Sut", "StoneFinch.ReactiveExtensions.Sut\StoneFinch.ReactiveExtensions.Sut.csproj", "{A235B203-96A9-46A7-90C2-81DEB89A60D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +32,14 @@ Global
 		{F87C65BA-055F-48E0-8E79-379911601DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F87C65BA-055F-48E0-8E79-379911601DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F87C65BA-055F-48E0-8E79-379911601DF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F83B44B-302E-4C18-B977-F4A3907790E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F83B44B-302E-4C18-B977-F4A3907790E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F83B44B-302E-4C18-B977-F4A3907790E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F83B44B-302E-4C18-B977-F4A3907790E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A235B203-96A9-46A7-90C2-81DEB89A60D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A235B203-96A9-46A7-90C2-81DEB89A60D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A235B203-96A9-46A7-90C2-81DEB89A60D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A235B203-96A9-46A7-90C2-81DEB89A60D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
