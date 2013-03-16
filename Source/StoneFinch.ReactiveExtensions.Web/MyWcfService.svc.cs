@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -63,6 +64,8 @@ namespace StoneFinch.ReactiveExtensions.Web
 
             if (s == "ANN")
                 Thread.Sleep(10000);
+
+            Debug.WriteLine(String.Format("MyWcfService SelectNamesStartWith: {0}", s));
 
             return
                 this.Names
