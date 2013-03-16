@@ -22,7 +22,7 @@
             <TextBlock x:Name="AnnouncementTextBlock" Width="200" TextWrapping="Wrap" Canvas.Top="98" ></TextBlock>
 
 
-            <TextBlock Text="Current Results:" Canvas.Left="220" />
+            <TextBlock Text="Previous Searches:" Canvas.Left="220" />
             <ListBox ItemsSource="{Binding Path=PreviousSearches}" Width="200" Canvas.Left="220" Canvas.Top="37" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>

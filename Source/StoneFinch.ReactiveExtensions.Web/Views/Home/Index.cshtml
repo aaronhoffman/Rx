@@ -2,51 +2,97 @@
     ViewBag.Title = "Index";
 }
 
+<style>
+    li {
+        font-size: 20pt;
+    }
+</style>
 
 <table>
     <tr>
-        <td style="vertical-align:top;" >
+        <td style="vertical-align: top; width: 250px;">
             <h1>Name Search:</h1>
-            <input id="NameTextBox" type="text" value="" />
+            <input id="NameTextBox" type="text" style="font-size: 20pt;" value="" />
         </td>
-        <td style="vertical-align:top;">
-            <h1>Previous Search:</h1>
-            <ul id="PreviousSearchList" >
-
+        <td style="vertical-align: top; width: 300px;">
+            <h1>Previous Searches:</h1>
+            <ul id="PreviousSearchList">
             </ul>
-
         </td>
-        <td>
-
-
+        <td style="vertical-align: top; width: 300px;">
+            <h1>Current Results:</h1>
+            <ul id="CurrentResultsList">
+            </ul>
         </td>
     </tr>
-
-
 </table>
 
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/rx.min.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/rx.jquery.js")"></script>
-
+<script type="text/javascript" src="@Url.Content("~/Scripts/rx.time.js")"></script>
 
 <script type="text/javascript">
 
     $(function () {
 
         var nameTextBox = $("#NameTextBox");
-        
-        var obs =
+
+        var textChangedObs =
             nameTextBox
             .keyupAsObservable()
-            .select(function(x) { return $("#NameTextBox").val();});
+            .select(function (x) { return $("#NameTextBox").val(); })
+            .throttle(3000)
+            .where(function (x) { return x.length >= 3; })
+            .distinctUntilChanged();
 
-        obs.subscribe(function (x) {
+        /*
+        Compare Js to .NET
 
-            $("#PreviousSearchList").append("<li>" + x + "</li>");
+        var textChangedObs =
+            nameTextBoxTextChanged
+            .ObserveOnDispatcher()
+            .Select(x => ((TextBox)x.Sender).Text)
+            .Throttle(TimeSpan.FromSeconds(3))
+            .Where(x => x.Length >= 3)
+            .Distinct();
+        */
+
+        // add to previous search list
+        textChangedObs.subscribe(function (x) { $("#PreviousSearchList").append("<li>" + x + "</li>"); });
+
+        var searchResultObs =
+            textChangedObs
+            .select(function (x) { return nameSearch(x); })
+            .switchLatest();
+
+        /*
+        Compare Js to .NET
+
+        var searchResultObs =
+            textChangedObs
+            .Select(x => nameSearchObs(x))
+            .Switch();
+        */
+
+        searchResultObs.subscribe(function (resp) {
+            
+            var currentResultsList = $("#CurrentResultsList");
+
+            currentResultsList.empty();
+
+            $.each(resp.data, function(_, name) { currentResultsList.append("<li>" + name + "</li>"); });
+
         });
 
-
     });
+
+    function nameSearch(name) {
+        return $.ajaxAsObservable({
+            url: "http://localhost:2516/Home/SelectNamesStartWith",
+            data: { nameStartsWith: name },
+            datatype: "json"
+        });
+    }
 
 </script>

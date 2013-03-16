@@ -17,13 +17,13 @@ namespace StoneFinch.ReactiveExtensions.Wpf4
         public NameSearch()
         {
             InitializeComponent();
-
+            
             this.ViewModel = new NameSearchViewModel();
             this.DataContext = this.ViewModel;
 
             var service = new MyWcfServiceClient();
 
-            var searchObs = Observable.FromAsyncPattern<string, IEnumerable<string>>(service.BeginSelectNamesStartWith, service.EndSelectNamesStartWith);
+            var nameSearchObs = Observable.FromAsyncPattern<string, IEnumerable<string>>(service.BeginSelectNamesStartWith, service.EndSelectNamesStartWith);
 
             var nameTextBoxTextChanged = Observable.FromEventPattern<TextChangedEventArgs>(this.NameTextBox, "TextChanged");
             
@@ -37,12 +37,12 @@ namespace StoneFinch.ReactiveExtensions.Wpf4
 
             textChangedObs.ObserveOnDispatcher().Subscribe(x => this.ViewModel.PreviousSearches.Add(x));
 
-            var searchResult =
+            var searchResultObs =
                 textChangedObs
-                .Select(x => searchObs(x))
+                .Select(x => nameSearchObs(x))
                 .Switch();
 
-            searchResult.ObserveOnDispatcher().Subscribe(
+            searchResultObs.ObserveOnDispatcher().Subscribe(
                 x => this.ViewModel.CurrentResults.ReplaceAll(x));
 
         }
