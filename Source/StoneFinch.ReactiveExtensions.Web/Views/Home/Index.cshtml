@@ -89,7 +89,7 @@
 
     function nameSearch(name) {
         return $.ajaxAsObservable({
-            url: "http://localhost:2516/Home/SelectNamesStartWith",
+            url: "/Home/SelectNamesStartWith",
             data: { nameStartsWith: name },
             datatype: "json"
         });
